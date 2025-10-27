@@ -39,8 +39,8 @@ if (isset($_POST['username_account']) && isset($_POST['email_account']) && isset
 
             // เพิ่มข้อมูลในฐานข้อมูล
             $query_create_account = "
-                INSERT INTO account 
-                VALUES ('', '$username_account', '$email_account', '$password_account', '$birthdate', '$salt_account', 'member')
+                INSERT INTO account (id_account, username_account, email_account, password_account, birthdate, salt_account, role_account)
+                VALUES (NULL, '$username_account', '$email_account', '$password_account', '$birthdate', '$salt_account', 'member')
             ";
             $call_back_create_account = mysqli_query($connect, $query_create_account);
 
@@ -62,5 +62,6 @@ if (isset($_POST['username_account']) && isset($_POST['email_account']) && isset
     header('Location: register.php?error=no_data');
     exit;
 }
+
 
 ?>
